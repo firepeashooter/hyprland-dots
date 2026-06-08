@@ -17,7 +17,6 @@
     "custom/gpu",
     "memory",
     "temperature",
-    "disk",
     "network"
   ],
   "modules-center": [
@@ -41,34 +40,39 @@
     "cava"
     // "custom/custom"
   ],
-  "custom/launcher": {
-    "format": "{}",
-    "tooltip": true,
-    "exec": "echo '{\"text\":\"💧\",\"tooltip\":\"Drun | Run\"}'",
-    "return-type": "json",
-    "on-click": "~/.config/hypr/scripts/rofilaunch.sh d",
-    "on-click-right": "~/.config/hypr/scripts/rofilaunch.sh w"
+
+"custom/launcher": {
+    "format": "󰣇",
+    "tooltip": false
   },
+  // "custom/launcher": {
+  //   "format": "{}",
+  //   "tooltip": true,
+  //   "exec": "echo '{\"text\":\"💧\",\"tooltip\":\"Drun | Run\"}'",
+  //   "return-type": "json",
+  //   "on-click": "~/.config/hypr/scripts/rofilaunch.sh d",
+  //   "on-click-right": "~/.config/hypr/scripts/rofilaunch.sh w"
+  // },
   "custom/updates": {
     // "format": "📦 {}",
     "interval": 7200, // every two hours
     "format": "󱧘 {}",
     //"exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
     "exec": "~/.config/waybar/scripts/arch_updates.sh",
-    "on-click": "kitty --class wm-floating --title all_is_kitty --hold --detach sh -c 'pacman -Syu'",
+    // "on-click": "kitty --class wm-floating --title all_is_kitty --hold --detach sh -c 'pacman -Syu'",
     "tooltip": true
   },
   "cpu": {
     "interval": 1,
-    // "format": "󰍛 {usage}%",
+    "format": "󰍛 {usage}%",
     // "format-alt": "{icon0}{icon1}{icon2}{icon3}",
     // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     // "tooltip": true,
-    "format": "󰌢 {load}",
+    // "format": "󰌢 {load}",
     "tooltip": false,
-    "on-click": "missioncenter",
-    "on-click-right": "kitty --class wm-floating --title all_is_kitty --hold --detach sh -c 'btop'"
+    "on-click": "kitty --class wm-floating --title all_is_kitty --hold --detach sh -c 'btop'",
   },
+
   "custom/gpu": {
     "interval": 1,
     "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
@@ -89,7 +93,7 @@
   },
   "temperature": {
     "interval": 2,
-    "format": "{temperatureC}°C ",
+    "format": " {temperatureC}°C",
     "format-icons": ["", "", "", "", ""]
   },
   "disk": {
@@ -110,7 +114,7 @@
     // "format-alt": "⬆️ {bandwidthUpBytes} | ⬇️ {bandwidthDownBytes}",
     "format-alt": " {bandwidthUpBytes} |  {bandwidthDownBytes}",
     // "format-wifi": "{essid}({signalStrength}%) 🛜",
-    "format-wifi": "{essid}({signalStrength}%) 󰖩 ",
+    "format-wifi": "{essid} ({signalStrength}%) 󰖩 ",
     "format-ethernet": "🌐 {ipaddr}/{cidr} ",
     // "tooltip-format-wifi": "🛜 {essid}({signalStrength}%)",
     "tooltip-format-wifi": "󰖩  {essid}({signalStrength}%)",
@@ -226,34 +230,34 @@
     "icon-size": 15,
     "spacing": 15
   },
-  "clock": {
-    "format": "{:󰥔 %H:%M 󰃭 %d %b %Y}",
-    "format-alt": "{: %I:%M %p  %a %d}",
-    //"format": "{:🕰️ %R  📅 %d/%m}",
-    //"format-alt": "{:%A, %B %d, %Y (%R)} 🗓️ ",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "on-click-right": "mode",
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
-    },
-    "actions": {
-      "on-click-right": "mode",
-      "on-click-forward": "tz_up",
-      "on-click-backward": "tz_down",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
-  },
+  // "clock": {
+  //   "format": "{:󰥔 %H:%M 󰃭 %d %b %Y}",
+  //   "format-alt": "{: %I:%M %p  %a %d}",
+  //   //"format": "{:🕰️ %R  📅 %d/%m}",
+  //   //"format-alt": "{:%A, %B %d, %Y (%R)} 🗓️ ",
+  //   "tooltip-format": "<tt><small>{calendar}</small></tt>",
+  //   "calendar": {
+  //     "mode": "year",
+  //     "mode-mon-col": 3,
+  //     "weeks-pos": "right",
+  //     "on-scroll": 1,
+  //     "on-click-right": "mode",
+  //     "format": {
+  //       "months": "<span color='#ffead3'><b>{}</b></span>",
+  //       "days": "<span color='#ecc6d9'><b>{}</b></span>",
+  //       "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+  //       "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+  //       "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+  //     }
+  //   },
+  //   "actions": {
+  //     "on-click-right": "mode",
+  //     "on-click-forward": "tz_up",
+  //     "on-click-backward": "tz_down",
+  //     "on-scroll-up": "shift_up",
+  //     "on-scroll-down": "shift_down"
+  //   }
+  // },
   "custom/weather": {
     "format": "{}",
     "on-click": "wpaperd",
@@ -272,8 +276,8 @@
 
 	"clock": {
     "timezone": "America/Toronto",
-	"format": " {0:%d} <small>{0:%a}</small> {0:%H:%M}",
-	"format-alt": " {0:%A %B %d %Y (%V) | %r}",
+	"format": " {0:%d} <small>{0:%a}</small> {0:%I:%M %p}",
+	"format-alt": " {0:%A %B %d %Y | %R}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
         "weeks-pos": "right",

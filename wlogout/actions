@@ -14,7 +14,7 @@ if [[ "$?" == 0 ]]; then
     elif [[ "$1" == 'reboot' ]]; then
         systemctl reboot
     elif [[ "$1" == 'hibernate' ]]; then
-        systemctl systemctl hibernate
+        systemctl hibernate
     elif [[ "$1" == 'lock' ]]; then
         ~/.scripts/lock
     elif [[ "$1" == 'suspend' ]]; then
