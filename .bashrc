@@ -8,7 +8,7 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
-export DATABASE_PASSWORD="TheCapturing3*"
+export PATH="$HOME/.local/bin:$PATH"
 
 
 # Pokémon Fetch for hyfetch
